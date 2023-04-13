@@ -1,0 +1,18 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        r=[]
+        for i in s:
+            if i== '(' or i== '{' or i== '[':
+                r.append(i)
+            else:
+                if not r:
+                    return False
+                if i== ')' and r[-1] == '(':
+                    r.pop()
+                elif i== '}' and r[-1] == '{':
+                    r.pop()
+                elif i== ']' and r[-1] == '[':
+                    r.pop()
+                else:
+                    return False
+        return not r
