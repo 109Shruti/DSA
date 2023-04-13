@@ -1,0 +1,15 @@
+def nextGreaterElementToRight(arr,n):
+    l=[]
+    s=[]
+    l.append(-1)
+    s.append(arr[n-1])
+    for i in range(n-2,-1,-1):
+        while (len(s)!=0 and s[-1]<=arr[i]):
+            s.pop(-1)
+        if (len(s)==0):
+            l.append(-1)
+        else:
+            l.append(s[-1])
+        s.append(arr[i])
+    l.reverse()
+    return l
