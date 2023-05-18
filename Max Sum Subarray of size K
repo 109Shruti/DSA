@@ -1,0 +1,15 @@
+#User function Template for python3
+class Solution:
+    def maximumSumSubarray (self,K,a,N):
+        # code here 
+        s=e=0
+        r=0
+        sum1=0
+        while e<N:
+            sum1+=a[e]
+            if(e-s+1==K):
+                r=max(r,sum1)
+                sum1-=a[s]
+                s+=1
+            e+=1
+        return r
